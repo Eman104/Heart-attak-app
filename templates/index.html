@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+
+            background-image: url('../static/images/prevent-heart-attack.jpg');
+            background-attachment: fixed;
+            background-size: 1280px 600px;
+        }
+        h1,p{
+
+            display:grid;
+        }
+        label{
+            font-size: 20px;
+        }
+        .eman {
+            text-align: center ;
+            width: 50%;
+            height: 100%;
+            background-color: rgb(194, 195, 199);
+            margin-left: 310px;
+            margin-top: 100px;
+            padding-bottom: 100px;
+            padding-top: 20px;
+            box-shadow: 18px 25px 28px rgba(76, 79, 82, 0.849);
+            color: rgba(51, 52, 53, 0.849);
+        }
+        .input--style-4 {
+            width: 500px;
+            padding: 15px 30px;
+            margin-left:30px ;
+            margin-right:30px ;
+            margin-top: 10px;
+            margin-bottom:10px ;
+            display: inline-block;
+            border: 4px;
+            border-radius: 5px;
+            background-color: rgb(232, 236, 240);
+        }
+
+        select {
+            width: 550px;
+            background-color: rgb(232, 236, 240);
+            padding: 15px 30px;
+            margin-left:30px ;
+            margin-right:30px ;
+            margin-top: 10px;
+            margin-bottom:10px ;
+            display: inline-block;
+            border: 4px;
+            border-radius: 5px;
+        }
+
+        .radio-container{
+
+            padding: 20px 30px;
+        }
+
+        p {
+            font-size: 20px;
+
+        }
+        .predict {
+            width: 200px;
+            padding: 10px ;
+            font-size: 20px;
+            background: rgb(201, 209, 209);
+            border: 2px solid rgb(162, 166, 172);
+            border-radius: 7px;
+
+        }
+        button:hover {
+            background-color:rgb(146, 154, 165);
+        }
+         input[type="radio"] {
+
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            background-color: #f1ecf1;
+            border-radius: 50%;
+        }
+
+        input[type="radio"]:checked {
+            background-color: rgb(73, 131, 165);
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="eman">
+
+        <h1> Heart attack app</h1>
+        <p>this is an app to predict if the patient suffer from Heart attack </p>
+        <img src="static/images/image.jpg" >
+        <form action="/predict" method="GET" >
+        <div >
+            <label class="label"><b>Age</b></label>
+            <input class="input--style-4" placeholder="Age of the patient" type="number" name="age">
+        </div>
+        <div >
+            <label class="label"><b>trtbps</b></label>
+            <input class="input--style-4" type="number" placeholder="Resting blood pressure (in mm Hg)" name="trtbps">
+        </div>
+        <div >
+            <label class="label"><b>chol</b></label>
+            <input class="input--style-4" type="number" placeholder="Cholestoral in mg/dl fetched via BMI sensor" name="chol">
+        </div>
+        <div >
+            <label class="label"><b>thalachh</b></label>
+            <input class="input--style-4" type="number" placeholder="Maximum heart rate achieved" name="thalachh">
+        </div>
+        <div >
+            <label class="label"><b>oldpeak</b></label>
+            <input class="input--style-4" type="number" min="0" max="10" step="0.1" placeholder="Previous peak" name="oldpeak">
+        </div>
+
+
+        <label class="label-groub"><b>Gender</b></label>
+        <div class="p-t-10">
+            <br><label class="radio-container m-r-45">Male
+                <input type="radio" checked="checked" name="Gender" value="1" class="k">
+                <span class="checkmark"></span>
+            </label>
+            <label class="radio-container">Female
+                <input type="radio" name="Gender" value="0" class="k">
+                <span class="checkmark"></span>
+            </label>
+        </div><br>
+
+        <label class="label-groub"><b>exercise induced angina </b></label>
+        <div class="p-t-10">
+            <br><label class="radio-container m-r-45">Yes
+                <input type="radio" checked="checked" class="k" placeholder="Exercise induced angina ~ 1 = Yes, 0 = No" name="exng" value="1">
+                <span class="checkmark"></span>
+            </label>
+            <label class="radio-container">No
+                <input type="radio" name="exng"  class="k" value="0">
+                <span class="checkmark"></span>
+            </label>
+        </div><br>
+
+        <div class="input-group">
+            <label class="label"><b>caa</b></label>
+            <div class="rs-select2 js-select-simple select--no-search">
+                <select name="caa">
+                    <option value="" disabled selected hidden>Number of major vessels</option>
+                    <option value="0">Zero</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                </select>
+
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label class="label"><b>cp</b></label>
+            <div class="rs-select2 js-select-simple select--no-search">
+                <select name="cp">
+                    <option value="" disabled selected hidden>Chest pain type...</option>
+                    <option value="0">Typical Angina</option>
+                    <option value="1">Atypical Angina</option>
+                    <option value="2">Non-anginal Pain</option>
+                    <option value="3">Asymptomatic</option>
+
+                </select>
+
+            </div>
+        </div><br>
+
+
+        <label class="label-groub"><b>fbs</b></label>
+        <div class="p-t-10">
+            <br><label class="radio-container m-r-45">One
+                <input type="radio" checked="checked" class="k" placeholder="(fasting blood sugar > 120 mg/dl)" name="fbs" value="1">
+                <span class="checkmark"></span>
+            </label>
+            <label class="radio-container">Zero
+                <input type="radio" name="fbs" class="k" value="0">
+                <span class="checkmark"></span>
+            </label>
+        </div><br>
+
+        <div class="input-group">
+            <label class="label"><b>restecg</b></label>
+            <div class="rs-select2 js-select-simple select--no-search">
+                <select name="restecg">
+                    <option value="" disabled selected hidden>Resting electrocardiographic results.</option>
+                    <option value="0">Normal</option>
+                    <option value="1">ST-T wave normality</option>
+                    <option value="2">Left ventricular hypertrophy</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="input-group">
+            <label class="label"><b>slp</b></label>
+            <div class="rs-select2 js-select-simple select--no-search">
+                <select name="slp">
+                    <option value="" >disabled selected hidden Slope.</option>
+                    <option value="0">slp_1</option>
+                    <option value="1">slp_2</option>
+                    <option value="2">slp_3</option>
+                </select>
+
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label class="label"><b>thall</b></label>
+            <div class="rs-select2 js-select-simple select--no-search">
+                <select name="thall">
+                    <option value="" disabled selected hidden>Thalium Stress Test result.</option>
+                    <option value="0">Zero</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+
+                </select>
+
+            </div>
+        </div><br><br>
+        <button type="submit" class="predict">Predict </button>
+        <button type="reset" class="predict">Refresh </button>
+
+        </form>
+    </div>
+</body>
+</html>
