@@ -7,7 +7,7 @@
         body {
 
             background-image: url('../static/images/prevent-heart-attack.jpg');
-           background-attachment: fixed;
+            background-attachment: fixed;
             background-size: auto;
             margin-left: auto;
             margin-right: auto;
@@ -35,11 +35,20 @@
             box-shadow: 18px 25px 28px rgba(76, 79, 82, 0.849);
             color: rgba(51, 52, 53, 0.849);
         }
+        .eman img{
+
+        background-size: auto;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius:50%;
+            height:auto;
+            width:60%;
+        }
         .input--style-4 {
-            width: 500px;
+            width: 50%;
             padding: 15px 30px;
-            margin-left:30px ;
-            margin-right:30px ;
+            margin-left:auto ;
+            margin-right:auto ;
             margin-top: 10px;
             margin-bottom:10px ;
             display: inline-block;
@@ -49,11 +58,11 @@
         }
 
         select {
-            width: 550px;
+            width: 80%;
             background-color: rgb(232, 236, 240);
             padding: 15px 30px;
-            margin-left:30px ;
-            margin-right:30px ;
+            margin-left:auto ;
+            margin-right:auto ;
             margin-top: 10px;
             margin-bottom:10px ;
             display: inline-block;
@@ -71,12 +80,14 @@
 
         }
         .predict {
-            width: 200px;
+            width: 50%;
             padding: 10px ;
             font-size: 20px;
             background: rgb(201, 209, 209);
             border: 2px solid rgb(162, 166, 172);
             border-radius: 7px;
+            margin-left:auto ;
+            margin-right:auto ;
 
         }
         button:hover {
@@ -108,24 +119,24 @@
         <img src="static/images/image.jpg" >
         <form action="/predict" method="GET" >
         <div >
-            <label class="label"><b>Age</b></label>
-            <input class="input--style-4" placeholder="Age of the patient" type="number" name="age">
+            <label class="label"><b>Age</b></label><br>
+            <input class="input--style-4" placeholder="Age of the patient"  name="age">
         </div>
         <div >
-            <label class="label"><b>trtbps</b></label>
-            <input class="input--style-4" type="number" placeholder="Resting blood pressure (in mm Hg)" name="trtbps">
+            <label class="label"><b>trtbps</b></label><br>
+            <input class="input--style-4"  placeholder="Resting blood pressure (in mm Hg)" name="trtbps">
         </div>
         <div >
-            <label class="label"><b>chol</b></label>
-            <input class="input--style-4" type="number" placeholder="Cholestoral in mg/dl fetched via BMI sensor" name="chol">
+            <label class="label"><b>chol</b></label><br>
+            <input class="input--style-4"  placeholder="Cholestoral in mg/dl fetched via BMI sensor" name="chol">
         </div>
         <div >
-            <label class="label"><b>thalachh</b></label>
-            <input class="input--style-4" type="number" placeholder="Maximum heart rate achieved" name="thalachh">
+            <label class="label"><b>thalachh</b></label><br>
+            <input class="input--style-4"  placeholder="Maximum heart rate achieved" name="thalachh">
         </div>
         <div >
-            <label class="label"><b>oldpeak</b></label>
-            <input class="input--style-4" type="number" min="0" max="10" step="0.1" placeholder="Previous peak" name="oldpeak">
+            <label class="label"><b>oldpeak</b></label><br>
+            <input class="input--style-4"  min="0" max="10" step="0.1" placeholder="Previous peak" name="oldpeak">
         </div>
 
 
